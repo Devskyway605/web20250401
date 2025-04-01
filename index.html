@@ -1,11 +1,1067 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main_style.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/roller.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <title>一頁式網頁</title>
+    <style>
+        /* box */
+        #box01 {
+            background-color: #585858;
+        }
+
+        #box01:hover {
+            height: 300px;
+            background-color: #e68888;
+            font-size: 30px;
+            transition: all, 1s;
+        }
+
+        #box02 {
+            background-color: #585858;
+        }
+
+        #box02:hover {
+            height: 300px;
+            background-color: #489973;
+            font-size: 30px;
+            transition: all, 1s;
+        }
+
+        #box03 {
+            background-color: #585858;
+        }
+
+        #box03:hover {
+            height: 300px;
+            background-color: #527ebe;
+            font-size: 30px;
+            transition: all, 1s;
+        }
+
+        /* auto slider */
+        .slideshow-container {
+            max-width: 500px;
+            position: relative;
+            margin: auto;
+        }
+
+        /* Caption text */
+        .text {
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+
+
+        /* The dots/bullets/indicators */
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        #s06 .active {
+            background-color: #717171;
+        }
+
+        /* Fading animation */
+        .fade {
+            animation-name: fade;
+            animation-duration: 3s;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: .4
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        /* On smaller screens, decrease text size */
+        @media only screen and (max-width: 300px) {
+            .text {
+                font-size: 11px
+            }
+        }
+
+        /* auto slider end */
+        #s07 .box1:hover {
+            background-color: #ad8080;
+        }
+
+        .s12-text {
+            background-color: #cbd8ad80;
+            color: #dfe2e2;
+            padding: 15px;
+        }
+
+        .s12-image {
+            height: 200px;
+        }
+
+        /* 時間軸 */
+        .timeline-section {
+            position: relative;
+        }
+
+        .timeline-section::before {
+            content: "";
+            position: absolute;
+            width: 5px;
+            background-color: rgba(231, 113, 35);
+            top: 0;
+            bottom: 0;
+            left: 66.75%;
+            transform: translateX(-50%);
+        }
+
+        .timeline-section-pointer {
+            position: relative;
+        }
+
+        .timeline-section-pointer::before {
+            position: absolute;
+            content: "";
+            width: 22px;
+            height: 22px;
+            background-color: var(--textcolor01);
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 50%;
+            border: 5px solid rgba(231, 113, 35)
+        }
+
+        .timeline-section-pointer:hover::before {
+            width: 25px;
+            height: 25px;
+            background-color: var(--mycolor08);
+            border-color: #f7cb0a;
+        }
+
+
+        @media screen and (max-width: 768px) {
+
+            .s05-text,
+            .s08-text {
+                z-index: 10;
+                background-color: rgba(68, 59, 59, 0.2);
+                color: var(--textcolor01);
+                margin: 10px;
+                box-shadow: 2px 2px 4px 2px #faf9f9;
+                border-radius: 15px;
+                padding: 30px;
+                overflow: hidden;
+            }
+
+            .timeline-section::before,
+            .timeline-section-pointer::before {
+                display: none;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    hello world!
+    <!-- section 01 topnavbar -->
+    <section id="s01" class="bg-dark py-1">
+        <div class="container-fluid">
+            <div class="text-end">
+                <a href="" class="text-decoration-none me-3">
+                    <i class="fa-solid fa-earth-americas fa-spin fa-sm" style="color: #ffffff;"></i>
+                    <span class="text-white">Language</span>
+                </a>
+                <a href="" class="text-decoration-none me-3">
+                    <i class="fa-solid fa-person fa-sm" style="color: #ffffff;"></i>
+                    <span class="text-white">個人應用</span>
+                </a>
+                <a href="" class="text-decoration-none me-3">
+                    <i class="fa-regular fa-building" style="color: #ffffff;"></i>
+                    <span class="text-white">企業應用</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- section 02 navbar -->
+    <section id="s02">
+        <nav class="navbar navbar-expand-lg  navbar-white">
+            <div class="container-fluid">
+                <a class="navbar-brand me-5" href="#">
+                    <img src="images/gigabyte/logo.png" alt="">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">首頁</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#s06">產品</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#s07">服務支援</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">技嘉觀點</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#s05">最新消息</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">購買</a>
+                        </li>
+                        <!-- <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Dropdown
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li> -->
+                    </ul>
+                    <div class="me-5">
+                        <button class="me-2" style="border: none; background-color: rgba(111, 111, 111, 0);"><i
+                                class="fa-solid fa-cart-shopping fa-xl"></i></button>
+                        <button data-bs-toggle="modal" data-bs-target="#loginModal"
+                            style="border: none; background-color: rgba(111, 111, 111, 0);"><i
+                                class="fa-solid fa-user fa-xl me-3" style="color: #333333;"></i></button>
+                        <button style="border: none; background-color: rgba(111, 111, 111, 0);"><i
+                                class="fa-regular fa-lightbulb fa-xl"></i></button>
+
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </section>
+    <!-- section Modal login -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">會員登入</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3 form-floating">
+                        <input type="text" id="" class="form-control input-group" placeholder="">
+                        <label for="" class="form-label">會員帳號</label>
+                    </div>
+                    <div class="mb-3 form-floating">
+                        <input type="text" id="" class="form-control input-group" placeholder="">
+                        <label for="" class="form-label">會員密碼</label>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger align-content-start">成為新會員</button>
+                            <button type="button" class="btn btn-info text-white">登入</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">離開</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- section Modal register -->
+    <!-- section 03 banner -->
+    <section id="s03">
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
+                    aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4"
+                    aria-label="Slide 4"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active bg-cover"
+                    style="height:100vh; background-image: url(images/gigabyte/banner03.jpg);">
+                    <div class="carousel-caption d-none d-md-block p-3 rounded-4 shadow-lg"
+                        style="background-color: rgba(0, 0, 0, 0.2);">
+                        <h5 class="display-5 fw-900"><span>全球領先的電腦硬體產品製造商</span></h5>
+                    </div>
+                </div>
+
+                <div class="carousel-item bg-cover"
+                    style="height:100vh; background-image: url(images/gigabyte/banner02.jpg);">
+                    <div class="carousel-caption d-none d-md-block p-3 rounded-4 shadow-lg"
+                        style="background-color: rgba(0, 0, 0, 0.2);">
+                        <h5 class="display-5 fw-900"><span>專注於設計、開發及生產各類電腦組件</span></h5>
+                    </div>
+                </div>
+
+                <div class="carousel-item bg-cover"
+                    style="height:100vh; background-image: url(images/gigabyte/banner01.jpg);">
+                    <div class="carousel-caption d-none d-md-block p-3 rounded-4 shadow-lg"
+                        style="background-color: rgba(0, 0, 0, 0.2);">
+                        <h5 class="display-5 fw-900"><span>全球領先的電腦硬體產品製造商</span></h5>
+                    </div>
+                </div>
+
+                <div class="carousel-item bg-cover"
+                    style="height:100vh; background-image: url(images/gigabyte/banner04.jpg);">
+                    <div class="carousel-caption d-none d-md-block p-3 rounded-4 shadow-lg"
+                        style="background-color: rgba(0, 0, 0, 0.2);">
+                        <h5 class="display-5 fw-900"><span>全球領先的電腦硬體產品製造商</span></h5>
+                    </div>
+                </div>
+                <div class="carousel-item bg-cover"
+                    style="height:100vh; background-image: url(images/gigabyte/banner05.jpg);">
+                    <div class="carousel-caption d-none d-md-block p-3 rounded-4 shadow-lg"
+                        style="background-color: rgba(0, 0, 0, 0.2);">
+                        <h5 class="display-5 fw-900"><span>全球領先的電腦硬體產品製造商</span></h5>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+    <!-- section 04  挑選產品 -->
+    <section id="s04" class="vh-50 mb-5">
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-6">
+                    <a href="">
+                        <div class="rounded-3 shadow-lg bg-cover border-3"
+                            style="background-image: url(images/gigabyte/pic01.jpg); background-position: center center; height: 50vh;">
+                            <div class="h2 text-white p-3">個人應用</div>
+
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <div class="rounded-3 shadow-lg bg-cover border-3"
+                        style="background-image: url(images/gigabyte/pic02.jpg); background-position: center center; height: 50vh;">
+                        <div class="h2 text-white p-3">企業應用</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- section 05 最新消息 -->
+    <section id="s05">
+        <div class="container">
+            <div class="row mt-5 mb-5">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="h1">你最關心的 IT 事</div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 wow animate__fadeInDown " data-wow-duration="3s" data-wow-delay="0s">
+                    <div class="bg-cover" style="background-image: url(images/gigabyte/news01.webp); height: 250px;">
+                    </div>
+                    <h4 class="mt-3">技嘉觀點</h4>
+                    <a href="" class="text-secondary">技嘉伺服器扮演強力後盾！2024 ISC歐洲超級電腦大賽清華學生團隊獲亞軍肯定</a>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 wow animate__fadeInDown" data-wow-duration="4s" data-wow-delay="0s">
+                    <div class="bg-cover" style="background-image: url(images/gigabyte/news02.webp); height: 250px;">
+                    </div>
+                    <h4 class="mt-3">影片集</h4>
+                    <a href="" class="text-secondary">技嘉伺服器扮演強力後盾！2024 ISC歐洲超級電腦大賽清華學生團隊獲亞軍肯定</a>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 wow animate__fadeInDown" data-wow-duration="5s" data-wow-delay="0s">
+                    <div class="bg-cover" style="background-image: url(images/gigabyte/pic08.jpg); height: 250px;">
+                    </div>
+                    <h4 class="mt-3">解決方案</h4>
+                    <a href="" class="text-secondary">技嘉伺服器扮演強力後盾！2024 ISC歐洲超級電腦大賽清華學生團隊獲亞軍肯定</a>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 wow animate__fadeInDown" data-wow-duration="6s" data-wow-delay="0s">
+                    <div class="bg-cover" style="background-image: url(images/gigabyte/pic10.jpg); height: 250px;">
+                    </div>
+                    <h4 class="mt-3">活動</h4>
+                    <a href="" class="text-secondary">技嘉伺服器扮演強力後盾！2024 ISC歐洲超級電腦大賽清華學生團隊獲亞軍肯定</a>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 wow animate__fadeInDown" data-wow-duration="7s" data-wow-delay="0s">
+                    <div class="bg-cover" style="background-image: url(images/gigabyte/pic09.jpg); height: 250px;">
+                    </div>
+                    <h4 class="mt-3">新聞</h4>
+                    <a href="" class="text-secondary">技嘉伺服器扮演強力後盾！2024 ISC歐洲超級電腦大賽清華學生團隊獲亞軍肯定</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- section 11 企業數據-->
+    <section id="s11">
+        <div class="container-fluid bg-02">
+            <div class="row align-items-center">
+                <div class="col-md-5 bg-cover" style="background-image: url(images/gigabyte/pic02.jpg); height: 100vh;">
+                </div>
+
+                <div class="col-md-7 p-5 text-center">
+                    <div class="h1 mb-5"><span class="mb-3 fw-900">GIGABYTE Technology</span></div>
+                    <div class="h1 mb-3">核心價值：創新、品質、用戶體驗</div>
+                    <p class="mb-1">技嘉專注於設計與製造高性能的電腦硬體和相關產品，並以其創新技術和優質產品在全球市場上享有盛譽。</p>
+                    <p class="mb-1">技嘉持續投資於研發，推出多項業界領先技術</p>
+                    <p class="mb-1">獲得多項國際獎項，包括iF設計獎、紅點設計獎。</p>
+                    <p class="mb-1">技嘉致力於推動綠色科技與永續發展，實施多項環保計畫</p>
+                    <div class="row mt-5">
+                        <div class="col-md-3 wow animate__fadeInDown" data-wow-duration="2s" data-wow-delay="0s">
+                            <div class="h4">全球行銷</div>
+                            <div class="h1 fw-900 counter01 text-danger">160<span class="h5 text-secondary">/國</span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 wow animate__fadeInDown" data-wow-duration="3s" data-wow-delay="0s">
+                            <div class="h4">獲獎數目</div>
+                            <div class="h1 fw-900 counter02 text-danger">500<span class="h5 text-secondary">/項
+                                    iF設計獎、紅點設計獎</span></div>
+                        </div>
+
+                        <div class="col-md-3 wow animate__fadeInDown" data-wow-duration="4s" data-wow-delay="0s">
+                            <div class="h4">專業認證</div>
+                            <div class="h1 fw-900 counter03 text-danger">200<span class="h5 text-secondary">/認證</span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 wow animate__fadeInDown" data-wow-duration="5s" data-wow-delay="0s">
+                            <div class="h4">營業據點</div>
+                            <div class="h1 fw-900 counter04 text-danger">100<span class="h5 text-secondary">/全球據點</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- section 12 經營團隊 -->
+    <section id="s12">
+        <div class="container pt-5" style="height: 800px;">
+            <div class="mb-3 display-4 fw-900 text-center">經營團隊介紹</div>
+            <div class="row mt-5">
+                <div class="col-md-3">
+                    <div class="bg-info rounded-4 text-center bg-cover myrollert wow animate__fadeInDown"
+                        data-wow-duration="3s" data-wow-delay="0s"
+                        style="width: 100%; height: 400px; background-image: url(images/bg-001.jpg); top: 100px; ">
+                        <div class="rollert d-flex flex-column">
+                            <h4 class="text-white">董事長： 葉培城</h4>
+                            <button class="btn btn-info text-white">了解更多</button>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="bg-info rounded-4  bg-cover myrollert wow animate__fadeInUp" data-wow-duration="3s"
+                        data-wow-delay="0s"
+                        style="width: 100%; height: 400px; background-image: url(images/person01.jpg); top: 200px;">
+                        <div class="rollert d-flex flex-column">
+                            <h4 class="text-white">董事：楊雪卿</h4>
+                            <button class="btn btn-info text-white">了解更多</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="bg-info rounded-4  bg-cover myrollert wow animate__fadeInDown" data-wow-duration="3s"
+                        data-wow-delay="0s"
+                        style="width: 100%; height: 400px; background-image: url(images/person02.jpg);">
+                        <div class="rollert d-flex flex-column">
+                            <h4 class="text-white">董事：馬孟明</h4>
+                            <button class="btn btn-info text-white">了解更多</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="bg-info rounded-4  bg-cover myrollert wow animate__fadeInUp" data-wow-duration="3s"
+                        data-wow-delay="0s"
+                        style="width: 100%; height: 400px; background-image: url(images/person03.jpg); top: 125px;">
+                        <div class="rollert d-flex flex-column">
+                            <h4 class="text-white">獨立董事：朱文儀</h4>
+                            <button class="btn btn-info text-white">了解更多</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- section 06 熱銷產品 -->
+    <section id="s06" class="vh-50 pt-5 pb-5 bg-06">
+        <div class="container">
+            <div class="h1 text-center">熱銷產品</div>
+            <!-- 個人產品 -->
+            <div class="row justify-content-start">
+                <div class="col-md-5 m-3 card shadow shadow-lg">
+                    <div class="card-body ">
+                        <h4 class="text-secondary">| 個人產品</h4>
+                        <div class="slideshow-container">
+                            <div class="mySlides fade align-items-center">
+                                <img src="images/gigabyte/product04.jpg" style="width: 100%;">
+                                <div class="text">主機板</div>
+                            </div>
+
+                            <div class="mySlides fade">
+                                <img src="images/gigabyte/banner04.jpg" style="width: 100%;">
+                                <div class="text">顯示卡</div>
+                            </div>
+
+                            <div class="mySlides fade">
+                                <img src="images/gigabyte/product03.jpg" style="width: 100%;">
+                                <div class="text">硬碟</div>
+                            </div>
+                        </div>
+                        <br>
+                        <div style="text-align:center">
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 justify-content-end align-content-center">
+                    <dl class="row">
+                        <dt class="col-sm-12">技嘉是全球最大的主機板製造商之一，提供多種型號以滿足不同需求：</dt>
+
+
+                        <dt class="col-sm-3 mt-4">AORUS 系列：</dt>
+                        <dd class="col-sm-9 mt-4">
+                            <p>針對高階遊戲玩家和內容創作者設計，具備強大的性能和散熱能力。</p>
+                        </dd>
+
+                        <dt class="col-sm-3">Gaming 系列：</dt>
+                        <dd class="col-sm-9">
+                            <p>專為遊戲玩家設計，提供穩定的性能和遊戲優化功能。</p>
+                        </dd>
+
+                        <dt class="col-sm-3 text-truncate">Ultra Durable 系列：</dt>
+                        <dd class="col-sm-9">
+                            <p>強調耐用性和穩定性，適合一般用戶和企業應用。</p>
+                        </dd>
+
+                        <dt class="col-sm-3">創作者系列：</dt>
+                        <dd class="col-sm-9">
+                            <p>為專業創作者設計，支援高解析度影像處理和多任務運算。</p>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+
+            <!-- 企業產品 -->
+            <div class="row justify-content-start mt-5">
+                <div class="col-md-6 justify-content-end align-content-center">
+                    <div class="justify-content-center">
+                        <div class="h4">
+                            <span class="mb-3">技嘉提供伺服器主機板、伺服器機箱和高效能運算解決方案<br><br>適用於數據中心、人工智能、雲端運算等領域</span>
+                            <div class="row justify-content-center">
+                                <p>專為國際企業提供服務</p>
+                                <div class="col-md-12 p-5 wow animate__slideInLeft" data-wow-duration="2s" data-wow-delay="0s">
+                                    <i class="fa-brands fa-android fa-xl ms-5 wow animate__bounce" data-wow-duration="2s" data-wow-delay="3s" data-wow-iteration="100" style="color: #3fd9b3;"></i>
+                                    <i class="fa-brands fa-square-x-twitter fa-xl ms-5 wow animate__bounce" data-wow-duration="2s" data-wow-delay="4s" data-wow-iteration="100" style="color: #545454;"></i>
+                                    <i class="fa-brands fa-discord fa-xl ms-5 wow animate__bounce" data-wow-duration="2s" data-wow-delay="3s" data-wow-iteration="100" style="color: #5162e6;"></i>
+                                    <i class="fa-brands fa-apple fa-xl ms-5 wow animate__bounce" data-wow-duration="2s" data-wow-delay="4s" data-wow-iteration="100" style="color: #b9b9b9;"></i>
+                                    <i class="fa-brands fa-facebook fa-xl ms-5 wow animate__bounce" data-wow-duration="2s" data-wow-delay="3s" data-wow-iteration="100" style="color: #3972d5;"></i>
+                                    <i class="fa-brands fa-youtube fa-xl ms-5 wow animate__bounce" data-wow-duration="2s" data-wow-delay="4s" data-wow-iteration="100" style="color: #f72262;"></i>
+                                </div>
+                                <div class="col-md-12 wow animate__slideInRight" data-wow-duration="2s" data-wow-delay="0s">
+                                    <i class="fa-brands fa-shopify fa-xl ms-5 wow animate__bounce" data-wow-duration="2s" data-wow-delay="3s" data-wow-iteration="100" style="color: #df633a;"></i>
+                                    <i class="fa-brands fa-instagram fa-xl ms-5 wow animate__bounce"  data-wow-duration="2s" data-wow-delay="4s" data-wow-iteration="100" data-wow-duration="2s"  style="color: #f386ac;"></i>
+                                    <i class="fa-brands fa-python fa-xl ms-5 wow animate__bounce" data-wow-duration="2s" data-wow-delay="3s" data-wow-iteration="100" style="color: #FFD43B;"></i>
+                                    <i class="fa-brands fa-line fa-xl ms-5 wow animate__bounce" data-wow-duration="2s" data-wow-delay="4s" data-wow-iteration="100" style="color: #1fea81;"></i>
+                                    <i class="fa-brands fa-dropbox fa-xl ms-5 wow animate__bounce" data-wow-duration="2s" data-wow-delay="3s" data-wow-iteration="100" style="color: #2e5dea;"></i>
+                                    <i class="fa-brands fa-weebly fa-xl ms-5 wow animate__bounce" data-wow-duration="2s" data-wow-delay="4s" data-wow-iteration="100" style="color: #74C0FC;"></i>
+                                </div>
+                                <div class="col-md-12 p-5 wow animate__slideInLeft" data-wow-duration="2s" data-wow-delay="0s">
+                                    <i class="fa-brands fa-reddit fa-xl ms-5 wow animate__bounce" data-wow-duration="2s" data-wow-delay="3s" data-wow-iteration="100" style="color: #f35520;"></i>
+                                    <i class="fa-brands fa-windows fa-xl ms-5 wow animate__bounce" data-wow-duration="2s" data-wow-delay="4s" data-wow-iteration="100" style="color: #56b0f5;"></i>
+                                    <i class="fa-brands fa-whatsapp fa-xl ms-5 wow animate__bounce" data-wow-duration="2s" data-wow-delay="3s" data-wow-iteration="100" style="color: #63E6BE;"></i>
+                                    <i class="fa-brands fa-twitch fa-xl ms-5 wow animate__bounce" data-wow-duration="2s" data-wow-delay="4s" data-wow-iteration="100" style="color: #B197FC;"></i>
+                                    <i class="fa-brands fa-square-pinterest fa-xl ms-5 wow animate__bounce" data-wow-duration="2s" data-wow-delay="3s" data-wow-iteration="100" style="color: #e21227;"></i>
+                                    <i class="fa-brands fa-html5 fa-xl ms-5 wow animate__bounce" data-wow-duration="2s" data-wow-delay="4s" data-wow-iteration="100" style="color: #ea802a;"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5 m-3 card shadow shadow-lg">
+                    <div class="card-body ">
+                        <h4 class="text-secondary">| 企業產品</h4>
+                        <div class="bg-cover" style="background-image: url(images/gigabyte/pic08.jpg); height: 500px;">
+
+                        </div>
+                        <br>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </div>
+    </section>
+    <!-- section 07 三按鈕 -->
+    <section id="s07" class="vh-50 pb-5">
+        <div class="container-fluid" style="background-color: #333333;">
+            <div class="row p-5 justify-content-center ">
+                <div id="box01" class="col-md-3 rounded-3 justify-content-center text-center ms-3 wow animate__backInUp"
+                    data-wow-duration="2s" data-wow-delay="0s" style="height: 250px; line-height: 125px;">
+                    <a href="#s11">
+                        <i class="fa-solid fa-building-user fa-2xl" style="color: #ffffff;"></i>
+                        <p class="text-white">關於我們</p>
+                    </a>
+                </div>
+                <div id="box02" class="col-md-3 rounded-3 justify-content-center text-center ms-3 wow animate__backInUp"
+                    data-wow-duration="2s" data-wow-delay="0s" style="height: 250px; line-height: 125px;">
+                    <a href="#">
+                        <i class="fa-regular fa-handshake fa-2xl" style="color: #ffffff;"></i>
+                        <p class="text-white">社會責任</p>
+                    </a>
+                </div>
+
+                <div id="box03" class="col-md-3 rounded-3 justify-content-center text-center ms-3 wow animate__backInUp"
+                    data-wow-duration="2s" data-wow-delay="0s" style="height: 250px; line-height: 125px;">
+                    <a href="#s13">
+                        <i class="fa-solid fa-screwdriver-wrench fa-xl " style="color: #ffffff;"></i>
+                        <p class="text-white">服務&支援</p>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- section 08 維修流程 -->
+    <section id="s08" class="bg-cover mb-5 mt-2 py-5" style="background-image: url(images/gigabyte/pic03.jpg);">
+        <div class="container timeline-section">
+            <div class="row justify-content-end align-items-center ">
+                <div class="col-md-3">
+                    <div class="s12-text">
+                        <div class="h1 text-dark rounded-3"><span>維修流程介紹</span></div>
+                        <p class="text-white fs-5"></p>
+                    </div>
+                </div>
+
+                <div class="row col-md-8">
+
+                    <div class="row align-items-center mt-5 timeline-section-pointer">
+                        <div class="col-6 wow animate__rotateIn" data-wow-duration="3s" data-wow-delay="0s">
+                            <div class="s12-text rounded-3 shadow-lg">
+                                <h2>1. 問題確認與需求了解</h2>
+                                <p>用戶描述問題：用戶向技術人員描述電腦的問題，例如無法開機、系統崩潰、速度變慢等。基本詢問：技術人員詢問相關背景，例如：
+                                    問題何時開始出現？
+                                    最近是否安裝了新軟體或硬體？
+                                    是否有異常聲音或氣味？</p>
+                            </div>
+                        </div>
+                        <div class="col-6 wow animate__rotateIn" data-wow-duration="3s" data-wow-delay="0s">
+                            <div class="s12-image rounded-3 bg-cover"
+                                style="background-image: url(images/gigabyte/pic04.jpg);">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row align-items-center flex-row-reverse mt-5 timeline-section-pointer">
+                        <div class="col-6 wow animate__rotateIn" data-wow-duration="3s" data-wow-delay="0s">
+                            <div class="s12-text rounded-3 shadow-lg">
+                                <h2>2. 初步檢查</h2>
+                                <p>外觀檢查：檢查電腦是否有明顯的損壞，例如裂痕、變形或燒焦痕跡。
+                                    硬體檢查：
+                                    確認電源線、連接線是否正常。
+                                    測試螢幕、鍵盤、滑鼠是否運作。
+                                    軟體檢查：
+                                    啟動電腦並觀察啟動過程是否有錯誤訊息。
+                                    嘗試進入安全模式或BIOS檢查。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-6 wow animate__rotateIn" data-wow-duration="3s" data-wow-delay="0s">
+                            <div class="s12-image rounded-3 bg-cover"
+                                style="background-image: url(images/gigabyte/pic05.jpg);">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row align-items-center mt-5 timeline-section-pointer">
+                        <div class="col-6 wow animate__rotateIn" data-wow-duration="3s" data-wow-delay="0s">
+                            <div class="s12-text  rounded-3 shadow-lg">
+                                <h2>3. 問題診斷</h2>
+                                <p>硬體診斷：
+                                    測試硬碟、記憶體、主機板、電源供應器等是否正常運作。
+                                    使用工具（例如萬用表或硬體診斷軟體）進行測試。
+                                    軟體診斷：
+                                    掃描病毒或惡意軟體。
+                                    檢查驅動程式是否更新或相容。
+                                    檢查作業系統的錯誤紀錄或事件檢視器。</p>
+                            </div>
+                        </div>
+                        <div class="col-6 wow animate__rotateIn" data-wow-duration="3s" data-wow-delay="0s">
+                            <div class="s12-image rounded-3 bg-cover"
+                                style="background-image: url(images/gigabyte/test02.avif);">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row align-items-center flex-row-reverse mt-5 timeline-section-pointer">
+                        <div class="col-6 wow animate__rotateIn" data-wow-duration="3s" data-wow-delay="0s">
+                            <div class="s12-text  rounded-3 shadow-lg">
+                                <h2>4. 修復或更換</h2>
+                                <p>軟體修復：
+                                    移除惡意軟體或修復損壞的系統檔案。
+                                    更新或重新安裝驅動程式。
+                                    重裝作業系統（如果必要）。
+                                    硬體更換：
+                                    更換損壞的硬體（如硬碟、記憶體、風扇等）。
+                                    如果是簡單故障，例如接觸不良，可能只需重新插拔。</p>
+                            </div>
+                        </div>
+                        <div class="col-6 wow animate__rotateIn" data-wow-duration="3s" data-wow-delay="0s">
+                            <div class="s12-image bg-cover rounded-3"
+                                style="background-image: url(images/gigabyte/pic03.jpg);">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row align-items-center mt-5 timeline-section-pointer ">
+                        <div class="col-6 wow animate__rotateIn" data-wow-duration="3s" data-wow-delay="0s">
+                            <div class="s12-text rounded-3 shadow-lg">
+                                <h2>5. 測試與驗證</h2>
+                                <p>確保問題已解決，電腦功能正常。
+                                    測試所有相關功能，例如啟動速度、應用程式運行、網路連線等。</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="s12-image bg-cover rounded-3"
+                                style="background-image: url(images/gigabyte/pic06.jpg);">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- section 09 門市位置 -->
+    <section id="s09" class="mt-5 mb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58241.19143896169!2d120.58036892626623!3d24.169121106214924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693dcd553200e3%3A0x42b32346ed146014!2z5oqA5ZiJ56eR5oqA5Y-w5Lit5pyN5YuZ5Lit5b-D!5e0!3m2!1szh-TW!2stw!4v1735804209747!5m2!1szh-TW!2stw"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="col-md-6 align-content-center">
+                    <dl class="row">
+                        <dt class="col-sm-4 wow animate__bounceInUp" data-wow-duration="2s" data-wow-delay="0s">門市名稱:
+                        </dt>
+                        <dd class="col-sm-7 wow animate__bounceInUp" data-wow-duration="2s" data-wow-delay="0s">
+                            技嘉科技台中服務中心</dd>
+
+                        <dt class="col-sm-4 wow animate__bounceInUp" data-wow-duration="4s" data-wow-delay="0s">地址:</dt>
+                        <dd class="col-sm-7 wow animate__bounceInUp" data-wow-duration="4s" data-wow-delay="0s">
+                            <p>40358台中市西區昇平街135號</p>
+                        </dd>
+
+                        <dt class="col-sm-4 wow animate__bounceInUp" data-wow-duration="6s" data-wow-delay="0s">營業時間:
+                        </dt>
+                        <dd class="col-sm-7 wow animate__bounceInUp" data-wow-duration="6s" data-wow-delay="0s">
+                            禮拜一 ~ 禮拜六 | 11:00 – 20:00 <br>
+                            <hr>
+                            禮拜天 | 固定公休
+                            <br><br>
+                        </dd>
+
+                        <dt class="col-sm-4 wow animate__bounceInUp" data-wow-duration="8s" data-wow-delay="0s">連絡電話:
+                        </dt>
+                        <dd class="col-sm-7 wow animate__bounceInUp" data-wow-duration="8s" data-wow-delay="0s">
+                            <i class="fa-solid fa-phone-volume fa-bounce fa-xl wow animate__bounceIn"
+                                data-wow-duration="2s" data-wow-delay="10s" data-wow-offset="100"></i>
+                            04-23020619
+                        </dd>
+
+                        <!-- <dt class="col-sm-3"></dt>
+                        <dd class="col-sm-9">
+                            <dl class="row">
+                                <dt class="col-sm-4">Nested definition list</dt>
+                                <dd class="col-sm-8">I heard you like definition lists. Let me put a definition list
+                                    inside your definition list.</dd>
+                            </dl>
+                        </dd> -->
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- section 10  -->
+    <section id="s10">
+        <div class="row">
+            <div class="col-lg-6 bg-cover" style="background-image: url(images/gigabyte/test03.avif); height: 50vh;">
+                <div class="row">
+                    <div class="col-md-9 m-3 p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                        <small class="badge text-bg-danger">加入我們</small>
+                        <div class="h2 text-white fw-900 my-3">徵求專案經理</div>
+                        <p class="h2">待遇: <span class="display-5 text-white"> 40000/月</span></p>
+                        <p class="text-white">工作內容:確認增長都有好像，小時他也項目同樣，同步構成新年前面不停大人星座是指提到，特點住宅本文專用下載地址電池討論區本身.</p>
+                        <button class="btn btn-outline-danger">加入我們</button>
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+            </div>
+            <div class="col-lg-6 bg-cover" style="background-image: url(images/gigabyte/test04.avif); height: 50vh;">
+                <div class="col-md-9 m-3 p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                    <small class="badge text-bg-danger">加入我們</small>
+                    <div class="h2 text-white fw-900 my-3 justif">徵求高階主管經理</div>
+                    <p class="h2">待遇: <span class="display-5 text-white"> 50000/月</span></p>
+                    <p class="text-white">工作內容:確認增長都有好像，小時他也項目同樣，同步構成新年前面不停大人星座是指提到，特點住宅本文專用下載地址電池討論區本身.</p>
+                    <button class="btn btn-outline-danger">加入我們</button>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+        </div>
+    </section>
+    <!-- section 13 與我們聯絡 -->
+    <section id="s13" class="mt-5 mb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="bg-cover m-3 rounded-3 shadow shadow-lg"
+                        style="background-image: url(images/gigabyte/pic04.jpg); height: 100%;"></div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="" class="form-label"></label>
+                            <input type="text" class="form-control" placeholder="姓名:">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="" class="form-label"></label>
+                            <input type="text" class="form-control" placeholder="電話">
+                        </div>
+                    </div>
+
+
+
+                    <div class="mb-3">
+                        <label for="" class="form-label"></label>
+                        <input type="text" class="form-control" placeholder="E-mail">
+                    </div>
+                    <div class="mb-3">
+                        <select name="selectCity" id="selectCity" class="form-select form-select-lg">
+                            <option value="" class="text-center" selected disabled>----選擇縣市----</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <select name="selectArea" id="selectArea" class="form-select form-select-lg">
+                            <option value="" class="text-center">----選擇鄉鎮區名稱----</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" placeholder="x路x段x號......etc">
+                    </div>
+                    <div class="mb-3">
+                        <select name="" id="" class="form-select form-select-lg">
+                            <option class="text-center" value="">--選擇問題類別--</option>
+                            <option value="">產品使用相關問題</option>
+                            <option value="">產品維修相關問題</option>
+                            <option value="">服務相關問題</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">問題描述</label>
+                        <textarea name="" id="" class="form-control"></textarea>
+                    </div>
+                    <div class="text-end ">
+                        <button class="btn btn-success">送出</button>
+                        <button class="btn btn-secondary">取消</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- section 14 徵才資訊 -->
+    <section id="s14" class="mt-5">
+    </section>
+    <!-- section 15 footer -->
+    <section id="s15">
+        <div class="container-fluid">
+            <div class="align-content-end ms-5" style="height: 20vh;">台灣區技術服務專線<br>
+                0800-079-800 或 (02)8913-1377<br>
+                星期一~星期五 09:30~20:30, 星期六 09:30~17:30 (國定假日除外)
+            </div>
+            <div class="text-end">
+                <i class="fa-brands fa-square-x-twitter fa-xl" style="color: #545454;"></i>
+                <i class="fa-brands fa-facebook fa-xl" style="color: #3972d5;"></i>
+                <i class="fa-brands fa-youtube fa-xl" style="color: #f72262;"></i>
+            </div>
+            <hr>
+            <p class="text-end">© 2024 - 2025 No.8 Yi All Rights Reserved.</p>
+        </div>
+
+    </section>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="https://unpkg.com/counterup2@2.0.2/dist/index.js"></script>
+    <script>
+
+        var city;
+        var selectedCity; //紀錄選取的縣市名稱
+        var selectedArea; //紀錄選取的鄉鎮市區
+
+
+        // animate
+        new WOW().init();
+
+
+        // counter up2
+        const counterUp = window.counterUp.default
+
+        const callback = entries => {
+            entries.forEach(entry => {
+                const el = entry.target
+                if (entry.isIntersecting && !el.classList.contains('is-visible')) {
+                    counterUp(el, {
+                        duration: 2000, // 2000毫秒
+                        delay: 16, // 16毫秒
+                    })
+                    el.classList.add('is-visible')
+                }
+            })
+        }
+
+        const IO = new IntersectionObserver(callback, { threshold: 1 })
+
+        const el01 = document.querySelector('.counter01')
+        IO.observe(el01)
+        const el02 = document.querySelector('.counter02')
+        IO.observe(el02)
+        const el03 = document.querySelector('.counter03')
+        IO.observe(el03)
+        const el04 = document.querySelector('.counter04')
+        IO.observe(el04)
+
+        // 登入&註冊
+        $(function () {
+            $("#ok_btn").click(function () {
+                if ($("#account").val().length > 3 && $("#account").val().length < 6) {
+                    $("#account").addClass("is-valid");
+                    $("#account").removeClass("is-invalid");
+                } else {
+                    $("#account").addClass("is-invalid");
+                    $("#account").removeClass("is-valid");
+                }
+
+                if ($("#pwd").val().length > 2 && $("#pwd").val().length < 5) {
+                    $("#pwd").addClass("is-valid");
+                    $("#pwd").removeClass("is-invalid");
+                } else {
+                    $("#pwd").removeClass("is-valid");
+                    $("#pwd").addClass("is-invalid");
+                }
+            });
+
+            // section09  客戶需求表單-縣市選單
+
+            // 載入縣市資料
+            $.ajax({
+                type: "GET",
+                url: "js/CityCountyData.json",
+                dataType: "json",
+                async: false, //是否會預先處理
+                success: function (data) {
+                    console.log(data);
+                    city = data;
+                },
+                error: function () {
+                    console.log("error-js/CityCountyData.json");
+                }
+            });
+
+
+            console.log(city);
+
+            // 顯示縣市選單
+            $("#selectCity").empty();
+            $("#selectCity").append('<option value="" class="text-center" selected disabled>----選擇縣市----</option>');
+            city.forEach(function (item) {
+                // console.log(item.CityName);
+
+                var strHTML = `<option value="${item.CityName}">${item.CityName}</option>`;
+                $("#selectCity").append(strHTML);
+            });
+
+            // 監聽縣市選單
+            $("#selectCity").change(function () {
+                // console.log($(this).val());
+                selectedCity = $(this).val();
+
+                city.forEach(function (item) {
+                    if (item.CityName == selectedCity) {
+                        // 產生鄉鎮區選單
+                        $("#selectArea").empty();
+                        $("#selectArea").append('<option value="" class="text-center" selected disabled>----選擇鄉鎮區名稱----</option>');
+                        item.AreaList.forEach(function (myitem) {
+                            // console.log(myitem.AreaName);
+
+                            var strHTML = `<option value="${myitem.AreaName}">${myitem.AreaName}</option>`;
+                            $("#selectArea").append(strHTML);
+                        });
+                    }
+                });
+            });
+            // auto slider
+            let slideIndex = 0;
+            showSlides();
+
+            function showSlides() {
+                let i;
+                let slides = document.getElementsByClassName("mySlides");
+                let dots = document.getElementsByClassName("dot");
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                slideIndex++;
+                if (slideIndex > slides.length) { slideIndex = 1 }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+                setTimeout(showSlides, 2000); // Change image every 2 seconds
+            }
+        });
+
+
+
+
+    </script>
 </body>
+
 </html>
